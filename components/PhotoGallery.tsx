@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 const images = [
   "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200",
@@ -57,7 +57,7 @@ export const PhotoGallery: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 3000); // Updated to 3 seconds
+    }, 3000); 
     return () => clearInterval(timer);
   }, [paginate]);
 
@@ -95,13 +95,6 @@ export const PhotoGallery: React.FC = () => {
           aria-label="Previous slide"
         >
           <ChevronLeft size={20} className="md:w-6 md:h-6" />
-        </button>
-        <button 
-          className="absolute right-2 md:right-8 lg:left-12 z-50 p-3 md:p-4 bg-white/95 shadow-xl rounded-full text-red-800 hover:bg-red-700 hover:text-white transition-all backdrop-blur-sm hidden md:flex"
-          onClick={() => paginate(1)}
-          aria-label="Next slide"
-        >
-          <ChevronRight size={20} className="md:w-6 md:h-6" />
         </button>
 
         <div className="relative w-full max-w-6xl flex justify-center items-center h-full px-2 sm:px-4">
@@ -144,12 +137,9 @@ export const PhotoGallery: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
               
-              {/* Mobile-only subtle hints */}
+              {/* Mobile-only subtle hints (Left only now) */}
               <div className="absolute inset-y-0 left-0 w-8 flex items-center justify-center md:hidden pointer-events-none opacity-20">
                 <ChevronLeft className="text-white" size={20} />
-              </div>
-              <div className="absolute inset-y-0 right-0 w-8 flex items-center justify-center md:hidden pointer-events-none opacity-20">
-                <ChevronRight className="text-white" size={20} />
               </div>
             </motion.div>
           </AnimatePresence>
