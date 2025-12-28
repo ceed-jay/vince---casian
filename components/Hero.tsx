@@ -22,36 +22,6 @@ export const Hero: React.FC<HeroProps> = ({ bgImageUrl }) => {
         </div>
       )}
 
-      {/* Floating Sparkles/Petals Effect */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-red-200/40 z-[3] pointer-events-none"
-          initial={{ 
-            x: Math.random() * 400 - 200, 
-            y: -50, 
-            rotate: 0,
-            opacity: 0 
-          }}
-          animate={{ 
-            y: '110vh', 
-            rotate: 360,
-            opacity: [0, 0.6, 0]
-          }}
-          transition={{ 
-            duration: 10 + Math.random() * 10, 
-            repeat: Infinity, 
-            delay: i * 3,
-            ease: "linear"
-          }}
-          style={{ left: `${Math.random() * 100}%` }}
-        >
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C12 2 10 8 4 10C10 12 12 18 12 18C12 18 14 12 20 10C14 8 12 2 12 2Z" />
-          </svg>
-        </motion.div>
-      ))}
-
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
