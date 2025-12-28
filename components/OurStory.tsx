@@ -37,7 +37,7 @@ export const OurStory: React.FC = () => {
             <div key={index} className={`flex flex-col md:flex-row items-center gap-10 md:gap-24 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
               {/* Image Container - Now flex-[1.6] to make it significantly larger */}
               <div className="flex-[1.6] w-full">
-                <div className="relative border-2 md:border-4 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-none overflow-hidden hover:shadow-red-900/10 transition-all duration-700">
+                <div className="relative border-2 md:border-4 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-none overflow-hidden hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-700">
                   <div className="overflow-hidden aspect-[16/10] md:aspect-[4/3]">
                     <img 
                       src={event.image} 
