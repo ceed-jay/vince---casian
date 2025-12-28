@@ -9,6 +9,13 @@ export const BigFrame: React.FC<BigFrameProps> = ({ imgUrl, caption }) => {
   return (
     <section className="py-10 md:py-24 bg-white flex justify-center items-center px-4 md:px-12 overflow-hidden">
       <div className="relative max-w-7xl w-full">
+        {/* Hashtag - Moved above the photo */}
+        <div className="text-center mb-8 md:mb-12">
+          <p className="font-serif text-red-800 text-base md:text-xl lg:text-2xl tracking-[0.3em] uppercase">
+            #VINCE&CASWithLove
+          </p>
+        </div>
+
         {/* Cinematic Wide Photo Container - Shadow removed */}
         <div className="relative rounded-none overflow-hidden aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] bg-gray-50 group">
           <img 
