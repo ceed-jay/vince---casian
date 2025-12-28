@@ -26,11 +26,7 @@ export const Details: React.FC = () => {
           <h2 className="font-serif text-4xl md:text-6xl text-gray-900 mb-6">
             Celebration Details
           </h2>
-          <div className="flex justify-center items-center gap-4">
-            <div className="w-12 h-px bg-red-200"></div>
-            <div className="w-1.5 h-1.5 rounded-full bg-red-700"></div>
-            <div className="w-12 h-px bg-red-200"></div>
-          </div>
+          <div className="w-24 h-px bg-red-200 mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-stretch">
