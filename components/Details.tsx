@@ -8,7 +8,7 @@ const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: stri
         {icon}
       </div>
       <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">{title}</h3>
-      <p className="text-gray-500 font-normal text-base md:text-lg leading-relaxed max-w-xs mx-auto mb-8">{content}</p>
+      <p className="text-gray-500 font-light text-xs md:text-sm italic leading-relaxed max-w-xs mx-auto mb-8">{content}</p>
     </div>
     {subContent && (
       <div className="mt-auto pt-6 border-t border-red-50 w-full flex justify-center">
