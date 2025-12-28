@@ -12,7 +12,7 @@ export const BigFrame: React.FC<BigFrameProps> = ({ imgUrl, caption }) => {
         {/* Hashtag - Moved above the photo */}
         <div className="text-center mb-8 md:mb-12">
           <p className="font-serif text-red-800 text-base md:text-xl lg:text-2xl tracking-[0.3em] uppercase">
-            #VINCE&CASWithLove
+            #VINCE&CASIANWithLove
           </p>
         </div>
 
