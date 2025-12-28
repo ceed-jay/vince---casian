@@ -16,6 +16,12 @@ const App: React.FC = () => {
   // URL for the big picture frame photo
   const framePhotoUrl = "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=2000";
 
+  // QR Code details for RSVP section
+  const qrCodeUrl = "https://i.imgur.com/example-qr.png"; // Replace with your actual QR code image URL
+  const qrTitle = "A Note on Gifts";
+  const qrDescription = " For your convenience, gifts may be given via the QR code below or placed in the gift box at the venue. Thank you for sharing in this joyous beginning with us.";
+
+
   // Handle entry
   const handleOpenInvitation = () => {
     setIsOpened(true);
@@ -56,7 +62,11 @@ const App: React.FC = () => {
 
         <Details />
         
-        <RSVP />
+        <RSVP 
+          qrCodeUrl={qrCodeUrl}
+          qrTitle={qrTitle}
+          qrDescription={qrDescription}
+        />
       </main>
 
       <footer className={`py-12 md:py-20 bg-white text-center border-t border-red-50 relative z-10 transition-opacity duration-1000 ${isOpened ? 'opacity-100' : 'opacity-0'}`}>
@@ -64,7 +74,7 @@ const App: React.FC = () => {
           <p className="font-symphony text-4xl sm:text-5xl md:text-7xl text-red-800 mb-6">
             Vince <span className="font-script">&</span> Casian
           </p>
-          <p className="text-gray-400 uppercase tracking-[0.3em] text-[9px] md:text-xs">Forever & Always • May Date, 2026</p>
+          <p className="text-gray-400 uppercase tracking-[0.3em] text-[9px] md:text-xs">Forever & Always • July 11, 2026</p>
           <div className="mt-8 flex justify-center items-center space-x-4 md:space-x-6">
              <div className="w-8 md:w-20 h-px bg-red-100"></div>
              <span className="text-red-600 text-lg md:text-xl">❤</span>
