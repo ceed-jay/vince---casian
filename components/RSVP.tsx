@@ -33,7 +33,7 @@ export const RSVP: React.FC = () => {
                 exit={{ opacity: 0 }}
               >
                 <div className="text-center mb-8 md:mb-16">
-                  <h2 className="font-serif text-3xl md:text-5xl text-black mb-4 md:mb-6">Vince & Casian</h2>
+                  <h2 className="font-serif text-3xl md:text-5xl text-gray-900 mb-4 md:mb-6">Vince & Casian</h2>
                   <p className="text-red-400 uppercase tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] font-bold">Please RSVP before the 1st week of May</p>
                 </div>
 
@@ -101,7 +101,7 @@ export const RSVP: React.FC = () => {
                 <div className="w-16 h-16 md:w-24 md:h-24 bg-red-600 text-white rounded-none flex items-center justify-center mx-auto mb-6 md:mb-10 shadow-xl shadow-gray-200">
                   <CheckCircle size={32} />
                 </div>
-                <h3 className="font-serif text-3xl md:text-5xl text-black mb-4 md:mb-6">See You Soon!</h3>
+                <h3 className="font-serif text-3xl md:text-5xl text-gray-900 mb-4 md:mb-6">See You Soon!</h3>
                 <p className="text-gray-500 italic text-base md:text-xl mb-8 md:mb-12">"Your presence is the greatest gift of all."</p>
                 <button 
                   onClick={() => setIsSubmitted(false)}
