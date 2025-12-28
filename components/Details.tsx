@@ -11,7 +11,7 @@ const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: stri
     whileHover={{ y: -5 }}
     className="flex flex-col items-center text-center group transition-all py-8"
   >
-    <div className="w-12 h-12 md:w-14 md:h-14 bg-red-700 flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 group-hover:scale-110 transition-transform duration-500">
+    <div className="w-10 h-10 md:w-12 md:h-12 bg-red-700 rounded-full flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 group-hover:scale-110 transition-transform duration-500">
       {icon}
     </div>
     <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">{title}</h3>
@@ -46,21 +46,21 @@ export const Details: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           <DetailCard 
-            icon={<MapPin size={20} />}
+            icon={<MapPin size={18} />}
             title="The Venue"
             content="Our celebration will be hosted at the elegant Barisbis in Camalig, Albay. Our staff will be ready to guide you."
             subContent="Camalig, Albay 4502"
             delay={0.1}
           />
           <DetailCard 
-            icon={<Shirt size={20} />}
+            icon={<Shirt size={18} />}
             title="Dress Code"
             content="We invite our guests to join us in Semi-Formal attire, reflecting the romance and elegance of the day."
             subContent="Semi-Formal / Formal"
             delay={0.2}
           />
           <DetailCard 
-            icon={<Baby size={20} />}
+            icon={<Baby size={18} />}
             title="Children"
             content="To allow all guests to relax and enjoy the evening, we have chosen for our wedding to be an adults-only occasion."
             subContent="Adults Only Reception"
@@ -74,8 +74,8 @@ export const Details: React.FC = () => {
           viewport={{ once: true }}
           className="mt-16 md:mt-32 flex flex-col md:flex-row items-center gap-8 border-t border-red-50 pt-16"
         >
-          <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-red-200">
-            <Navigation size={24} />
+          <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-red-200 rounded-full">
+            <Navigation size={20} />
           </div>
           <div className="text-center md:text-left">
             <h4 className="font-serif text-2xl text-gray-900 mb-2">Navigation</h4>
