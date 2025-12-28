@@ -28,8 +28,10 @@ export const Hero: React.FC<HeroProps> = ({ bgImageUrl }) => {
         transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
         className="z-10 relative w-full max-w-[95vw] sm:max-w-4xl"
       >
-        <h1 className="font-symphony text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] text-white mb-6 tracking-normal drop-shadow-2xl leading-none">
-          Vince <span className="text-red-500 font-script sm:inline-block">&</span> Casian
+        <h1 className="font-symphony text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] text-white mb-8 tracking-normal drop-shadow-2xl leading-[1.1] sm:leading-none">
+          <span className="block sm:inline">Vince</span>
+          <span className="text-red-500 font-script inline-block mx-2 sm:mx-6 transform translate-y-2 sm:translate-y-0">&</span>
+          <span className="block sm:inline">Casian</span>
         </h1>
         <motion.div 
           initial={{ opacity: 0 }}
