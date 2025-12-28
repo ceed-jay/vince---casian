@@ -122,7 +122,7 @@ export const PhotoGallery: React.FC = () => {
                   paginate(-1);
                 }
               }}
-              className="relative w-[70%] sm:w-[80%] md:w-[75%] lg:w-[65%] h-full z-20 shadow-[0_15px_50px_rgba(153,27,27,0.12)] md:shadow-[0_40px_100px_rgba(0,0,0,0.15)] border-2 md:border-4 border-white overflow-hidden cursor-grab active:cursor-grabbing will-change-transform"
+              className="relative w-[70%] sm:w-[80%] md:w-[75%] lg:w-[65%] h-full z-20 shadow-[0_40px_100px_rgba(0,0,0,0.15)] border-2 md:border-4 border-white overflow-hidden cursor-grab active:cursor-grabbing will-change-transform"
               style={{ borderRadius: '0px' }}
             >
               <img 
