@@ -17,8 +17,8 @@ const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: stri
     <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">{title}</h3>
     <p className="text-gray-500 font-normal text-base md:text-lg leading-relaxed max-w-xs mx-auto">{content}</p>
     {subContent && (
-      <div className="mt-6 pt-6 border-t border-red-50 w-full max-w-[100px]">
-        <p className="text-red-700 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold">{subContent}</p>
+      <div className="mt-6 pt-6 border-t border-red-50 w-full flex justify-center">
+        <p className="text-red-700 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold whitespace-nowrap">{subContent}</p>
       </div>
     )}
   </motion.div>
