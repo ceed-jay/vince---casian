@@ -57,7 +57,7 @@ export const PhotoGallery: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 5000); 
+    }, 3000); // Updated to 3 seconds
     return () => clearInterval(timer);
   }, [paginate]);
 
@@ -97,7 +97,7 @@ export const PhotoGallery: React.FC = () => {
           <ChevronLeft size={20} className="md:w-6 md:h-6" />
         </button>
         <button 
-          className="absolute right-2 md:right-8 lg:right-12 z-50 p-3 md:p-4 bg-white/95 shadow-xl rounded-full text-red-800 hover:bg-red-700 hover:text-white transition-all backdrop-blur-sm hidden md:flex"
+          className="absolute right-2 md:right-8 lg:left-12 z-50 p-3 md:p-4 bg-white/95 shadow-xl rounded-full text-red-800 hover:bg-red-700 hover:text-white transition-all backdrop-blur-sm hidden md:flex"
           onClick={() => paginate(1)}
           aria-label="Next slide"
         >
