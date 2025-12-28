@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Shirt, Baby, Navigation } from 'lucide-react';
+import { MapPin, Shirt, Baby, Navigation as NavIcon } from 'lucide-react';
 
 const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: string, subContent?: string }> = ({ icon, title, content, subContent }) => (
   <div className="flex flex-col items-center text-center group transition-all py-8 h-full">
@@ -50,21 +50,23 @@ export const Details: React.FC = () => {
           />
         </div>
 
-        <div className="mt-16 md:mt-32 flex flex-col md:flex-row items-center gap-8 border-t border-red-50 pt-16">
-          <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-gray-200 rounded-full">
-            <Navigation size={20} />
+        <div className="mt-16 md:mt-32 text-center border-t border-red-50 pt-16">
+          <div className="flex justify-center mb-6">
+            <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-gray-200 rounded-full">
+              <NavIcon size={20} />
+            </div>
           </div>
-          <div className="text-center md:text-left">
-            <h4 className="font-serif text-2xl text-gray-900 mb-2">Navigation</h4>
-            <p className="text-gray-500 text-sm md:text-base leading-relaxed">Follow the link to find the most direct route to Barisbis. We can't wait to see you there!</p>
-          </div>
+          <h4 className="font-serif text-2xl text-gray-900 mb-2">Let's Get You There</h4>
+          <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-lg mx-auto mb-8">
+            Follow the link for the most direct route to Barisbis. We can't wait to see you!
+          </p>
           <a 
             href="https://www.google.com/maps/search/?api=1&query=Barisbis+Camalig+Albay"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full md:w-auto md:ml-auto px-10 py-4 bg-gray-900 text-white rounded-none text-xs font-bold uppercase tracking-widest hover:bg-red-800 transition-all shadow-lg flex items-center justify-center gap-2"
+            className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-red-700 text-white rounded-none text-xs font-bold uppercase tracking-widest hover:bg-red-800 transition-all shadow-lg shadow-red-200"
           >
-            Get Directions
+            Open Google Maps
           </a>
         </div>
       </div>
