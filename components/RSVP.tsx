@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 
-export const RSVP: React.FC = () => {
+interface RSVPProps {
+  qrCodeUrl?: string;
+  qrTitle?: string;
+  qrDescription?: string;
+}
+
+export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription }) => {
   const [formData, setFormData] = useState({
     name: '',
     attendance: 'yes',
@@ -19,6 +25,24 @@ export const RSVP: React.FC = () => {
       setIsSubmitted(true);
     }, 1500);
   };
+
+  const QRSection = () => (
+    qrCodeUrl && (
+      <div className="mt-8 md:mt-12 pt-8 md:pt-10 border-t border-red-50 flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 sm:gap-6 md:gap-8">
+        <div className="shrink-0">
+          <img 
+            src={qrCodeUrl} 
+            alt="Gift information QR Code" 
+            className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-cover border-2 p-1 border-red-50 bg-white"
+          />
+        </div>
+        <div>
+          {qrTitle && <h4 className="font-serif text-lg sm:text-xl md:text-2xl text-gray-800 mb-2">{qrTitle}</h4>}
+          {qrDescription && <p className="text-[11px] sm:text-xs md:text-sm text-gray-500 leading-snug sm:leading-relaxed max-w-sm">{qrDescription}</p>}
+        </div>
+      </div>
+    )
+  );
 
   return (
     <section id="rsvp" className="py-20 md:py-32 bg-white px-4 relative overflow-hidden border-t border-red-50">
@@ -88,6 +112,9 @@ export const RSVP: React.FC = () => {
                     )}
                   </motion.button>
                 </form>
+
+                <QRSection />
+                
               </motion.div>
             ) : (
               <motion.div
@@ -107,6 +134,9 @@ export const RSVP: React.FC = () => {
                 >
                   Update Response
                 </button>
+                
+                <QRSection />
+
               </motion.div>
             )}
           </AnimatePresence>
