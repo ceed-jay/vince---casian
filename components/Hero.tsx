@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ bgImageUrl }) => {
       >
         <h1 className="font-symphony text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] text-white mb-8 tracking-normal drop-shadow-2xl leading-[1.1] sm:leading-none">
           <span className="block sm:inline">Vince</span>
-          <span className="text-red-800 font-script inline-block mx-2 sm:mx-6 transform translate-y-2 sm:translate-y-0">&</span>
+          <span className="text-red-800 font-script inline-block mx-2 sm:mx-6 transform translate-y-2 sm:translate-y-0 text-3xl sm:text-4xl md:text-6xl lg:text-[6rem]">&</span>
           <span className="block sm:inline">Casian</span>
         </h1>
         <motion.div 
