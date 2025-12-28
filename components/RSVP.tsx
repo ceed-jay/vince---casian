@@ -34,7 +34,7 @@ export const RSVP: React.FC = () => {
               >
                 <div className="text-center mb-8 md:mb-16">
                   <h2 className="font-serif text-3xl md:text-5xl text-black mb-4 md:mb-6">Vince & Casian</h2>
-                  <p className="text-red-400 uppercase tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] font-bold">Please RSVP by July 11, 2026</p>
+                  <p className="text-red-400 uppercase tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] font-bold">Please RSVP before the 1st week of May</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4 md:space-y-8">
