@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -22,9 +22,9 @@ const images = [
 
 const variants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? '100%' : '-100%',
+    x: direction > 0 ? '50%' : '-50%',
     opacity: 0,
-    scale: 0.9,
+    scale: 0.7,
   }),
   center: {
     zIndex: 1,
@@ -34,13 +34,13 @@ const variants = {
   },
   exit: (direction: number) => ({
     zIndex: 0,
-    x: direction < 0 ? '100%' : '-100%',
+    x: direction < 0 ? '50%' : '-50%',
     opacity: 0,
-    scale: 0.9,
+    scale: 0.7,
   }),
 };
 
-const swipeConfidenceThreshold = 10000;
+const swipeConfidenceThreshold = 5000;
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
@@ -50,16 +50,16 @@ export const PhotoGallery: React.FC = () => {
 
   const imageIndex = ((page % images.length) + images.length) % images.length;
 
-  const paginate = (newDirection: number) => {
+  const paginate = useCallback((newDirection: number) => {
     setPage([page + newDirection, newDirection]);
-  };
+  }, [page]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 4000); // Increased slightly for better viewing time
+    }, 5000); 
     return () => clearInterval(timer);
-  }, [page]);
+  }, [paginate]);
 
   const getAdjacentIndex = (offset: number) => {
     const idx = page + offset;
@@ -88,16 +88,16 @@ export const PhotoGallery: React.FC = () => {
       </div>
 
       <div className="relative h-[280px] sm:h-[450px] md:h-[650px] flex items-center justify-center">
-        {/* Navigation - Visible on MD+ only */}
+        {/* Navigation - Hidden on small mobile */}
         <button 
-          className="absolute left-2 md:left-8 lg:left-12 z-50 p-3 md:p-4 bg-white/90 shadow-xl rounded-full text-red-800 hover:bg-red-700 hover:text-white transition-all backdrop-blur-sm hidden md:flex"
+          className="absolute left-2 md:left-8 lg:left-12 z-50 p-3 md:p-4 bg-white/95 shadow-xl rounded-full text-red-800 hover:bg-red-700 hover:text-white transition-all backdrop-blur-sm hidden md:flex"
           onClick={() => paginate(-1)}
           aria-label="Previous slide"
         >
           <ChevronLeft size={20} className="md:w-6 md:h-6" />
         </button>
         <button 
-          className="absolute right-2 md:right-8 lg:right-12 z-50 p-3 md:p-4 bg-white/90 shadow-xl rounded-full text-red-800 hover:bg-red-700 hover:text-white transition-all backdrop-blur-sm hidden md:flex"
+          className="absolute right-2 md:right-8 lg:right-12 z-50 p-3 md:p-4 bg-white/95 shadow-xl rounded-full text-red-800 hover:bg-red-700 hover:text-white transition-all backdrop-blur-sm hidden md:flex"
           onClick={() => paginate(1)}
           aria-label="Next slide"
         >
@@ -105,19 +105,12 @@ export const PhotoGallery: React.FC = () => {
         </button>
 
         <div className="relative w-full max-w-6xl flex justify-center items-center h-full px-2 sm:px-4">
-          <AnimatePresence initial={false} custom={direction}>
-            {/* Left Peak - Adjusted for Mobile visibility */}
-            <motion.div
-              key={`prev-${getAdjacentIndex(-1)}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.25 }}
-              exit={{ opacity: 0 }}
-              className="absolute left-[-22%] sm:left-[-15%] xl:left-[-10%] w-[45%] h-[65%] md:h-[75%] blur-[1px] overflow-hidden pointer-events-none"
-            >
-              <img src={images[getAdjacentIndex(-1)]} className="w-full h-full object-cover" alt="" />
-            </motion.div>
+          {/* Static Peaks to reduce simultaneous animations */}
+          <div className="absolute left-[-25%] sm:left-[-18%] xl:left-[-12%] w-[45%] h-[60%] md:h-[75%] overflow-hidden pointer-events-none z-0 opacity-10">
+             <img src={images[getAdjacentIndex(-1)]} className="w-full h-full object-cover grayscale-[30%]" alt="" />
+          </div>
 
-            {/* Main Animated Image */}
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={page}
               custom={direction}
@@ -126,13 +119,13 @@ export const PhotoGallery: React.FC = () => {
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.4 },
-                scale: { duration: 0.4 }
+                x: { type: "spring", stiffness: 300, damping: 30, mass: 0.8 },
+                scale: { type: "spring", stiffness: 300, damping: 30, mass: 0.8 },
+                opacity: { duration: 0.3 }
               }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
+              dragElastic={0.5}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
                 if (swipe < -swipeConfidenceThreshold) {
@@ -141,7 +134,7 @@ export const PhotoGallery: React.FC = () => {
                   paginate(-1);
                 }
               }}
-              className="relative w-[70%] sm:w-[80%] md:w-[75%] lg:w-[65%] h-full z-20 shadow-[0_15px_40px_rgba(0,0,0,0.12)] md:shadow-[0_40px_100px_rgba(0,0,0,0.2)] border-2 md:border-4 border-white overflow-hidden cursor-grab active:cursor-grabbing"
+              className="relative w-[70%] sm:w-[80%] md:w-[75%] lg:w-[65%] h-full z-20 shadow-[0_15px_50px_rgba(153,27,27,0.12)] md:shadow-[0_40px_100px_rgba(0,0,0,0.15)] border-2 md:border-4 border-white overflow-hidden cursor-grab active:cursor-grabbing will-change-transform"
               style={{ borderRadius: '0px' }}
             >
               <img 
@@ -159,18 +152,11 @@ export const PhotoGallery: React.FC = () => {
                 <ChevronRight className="text-white" size={20} />
               </div>
             </motion.div>
-
-            {/* Right Peak - Adjusted for Mobile visibility */}
-            <motion.div
-              key={`next-${getAdjacentIndex(1)}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.25 }}
-              exit={{ opacity: 0 }}
-              className="absolute right-[-22%] sm:right-[-15%] xl:right-[-10%] w-[45%] h-[65%] md:h-[75%] blur-[1px] overflow-hidden pointer-events-none"
-            >
-              <img src={images[getAdjacentIndex(1)]} className="w-full h-full object-cover" alt="" />
-            </motion.div>
           </AnimatePresence>
+
+          <div className="absolute right-[-25%] sm:right-[-18%] xl:right-[-12%] w-[45%] h-[60%] md:h-[75%] overflow-hidden pointer-events-none z-0 opacity-10">
+             <img src={images[getAdjacentIndex(1)]} className="w-full h-full object-cover grayscale-[30%]" alt="" />
+          </div>
         </div>
       </div>
 
