@@ -61,7 +61,9 @@ const App: React.FC = () => {
 
       <footer className={`py-12 md:py-20 bg-white text-center border-t border-red-50 relative z-10 transition-opacity duration-1000 ${isOpened ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-4xl mx-auto px-6">
-          <p className="font-symphony text-4xl sm:text-5xl md:text-7xl text-red-800 mb-6">Vince & Casian</p>
+          <p className="font-symphony text-4xl sm:text-5xl md:text-7xl text-red-800 mb-6">
+            Vince <span className="font-script">&</span> Casian
+          </p>
           <p className="text-gray-400 uppercase tracking-[0.3em] text-[9px] md:text-xs">Forever & Always • July 11, 2026</p>
           <div className="mt-8 flex justify-center items-center space-x-4 md:space-x-6">
              <div className="w-8 md:w-20 h-px bg-red-100"></div>
