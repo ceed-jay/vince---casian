@@ -21,6 +21,14 @@ const App: React.FC = () => {
     setIsOpened(true);
   };
 
+  // Force scroll to top on mount and prevent browser scroll restoration
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   // Disable/Enable scroll based on envelope state
   useEffect(() => {
     if (!isOpened) {
