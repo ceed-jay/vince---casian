@@ -9,7 +9,7 @@ const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: stri
     viewport={{ once: true, margin: "-50px" }}
     transition={{ duration: 0.8, delay }}
     whileHover={{ y: -5 }}
-    className="bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-[2.5rem] border border-red-50 shadow-xl shadow-red-900/5 flex flex-col items-center text-center group transition-all"
+    className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-red-50 shadow-xl shadow-red-900/5 flex flex-col items-center text-center group transition-all"
   >
     <div className="w-16 h-16 md:w-20 md:h-20 bg-red-700 rounded-full flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 group-hover:scale-110 transition-transform duration-500">
       {icon}
@@ -26,10 +26,7 @@ const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: stri
 
 export const Details: React.FC = () => {
   return (
-    <section id="details" className="py-20 md:py-32 relative overflow-hidden bg-[#fffafa] px-6">
-      {/* Background Decor */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#991b1b 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
-      
+    <section id="details" className="py-20 md:py-32 relative overflow-hidden bg-white px-6">
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <motion.h2 
