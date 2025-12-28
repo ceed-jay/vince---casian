@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const events = [
   {
@@ -24,23 +23,12 @@ export const OurStory: React.FC = () => {
     <section id="story" className="py-20 md:py-32 bg-white px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-20 md:mb-32">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-red-600 font-bold uppercase tracking-[0.5em] text-[10px] md:text-[11px] mb-4 block"
-          >
+          <span className="text-red-600 font-bold uppercase tracking-[0.5em] text-[10px] md:text-[11px] mb-4 block">
             Chronicles of Us
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-serif text-5xl md:text-7xl text-gray-900 mb-8"
-          >
+          </span>
+          <h2 className="font-serif text-5xl md:text-7xl text-gray-900 mb-8">
             Our Story
-          </motion.h2>
+          </h2>
           <div className="w-16 h-px bg-red-200 mx-auto"></div>
         </div>
 
@@ -50,41 +38,29 @@ export const OurStory: React.FC = () => {
               key={index} 
               className={`flex flex-col md:flex-row items-center gap-10 md:gap-24 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
             >
-              {/* Image Container - No shadow or border */}
-              <motion.div 
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="flex-[1.6] w-full"
-              >
+              {/* Image Container - Static with no animation */}
+              <div className="flex-[1.6] w-full">
                 <div className="relative rounded-none overflow-hidden aspect-[4/3] bg-gray-50">
                   <img 
                     src={event.image} 
                     alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-              </motion.div>
+              </div>
 
-              {/* Text Container */}
-              <motion.div 
-                initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="flex-1 text-center md:text-left"
-              >
+              {/* Text Container - Static with smaller description font */}
+              <div className="flex-1 text-center md:text-left">
                 <h3 className="font-serif text-3xl md:text-5xl text-gray-900 mb-6">{event.title}</h3>
-                <p className="text-gray-500 text-sm md:text-lg leading-relaxed font-light italic">
+                <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
                   {event.description}
                 </p>
-                <div className={`flex justify-center md:justify-start items-center gap-4 mt-10`}>
+                <div className="flex justify-center md:justify-start items-center gap-4 mt-10">
                   <div className="w-8 h-px bg-red-100"></div>
                   <div className="w-1.5 h-1.5 rounded-full bg-[#710000]"></div>
                   <div className="w-8 h-px bg-red-100"></div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           ))}
         </div>
