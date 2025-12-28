@@ -16,8 +16,8 @@ export const BigFrame: React.FC<BigFrameProps> = ({ imgUrl, caption }) => {
           </p>
         </div>
 
-        {/* Cinematic Wide Photo Container - Shadow removed */}
-        <div className="relative rounded-none overflow-hidden aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] bg-gray-50 group">
+        {/* Cinematic Wide Photo Container - Updated to a consistent 16:9 aspect ratio */}
+        <div className="relative rounded-none overflow-hidden aspect-[16/9] bg-gray-50 group">
           <img 
             src={imgUrl} 
             alt="Couples Portrait" 
