@@ -16,10 +16,7 @@ export const EnvelopeEntry: React.FC<EnvelopeEntryProps> = ({ onOpen }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-[#fdfcfb] overflow-hidden px-6">
-      {/* Background Decor */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#991b1b 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-      
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-white overflow-hidden px-6">
       <motion.div
         animate={isAnimating ? { scale: 1.1, opacity: 0, y: -60 } : { scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.65, 0, 0.35, 1] }}
@@ -72,13 +69,13 @@ export const EnvelopeEntry: React.FC<EnvelopeEntryProps> = ({ onOpen }) => {
             <div className="absolute inset-0 bg-red-50/10"></div>
           </motion.div>
 
-          {/* Wax Seal / Stamp */}
+          {/* Wax Seal / Stamp - Centered on the envelope face */}
           <motion.div 
             animate={isAnimating ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
-            className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center"
           >
             <div className="relative">
-              <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 bg-red-700 rounded-full shadow-[0_20px_40px_rgba(153,27,27,0.4)] flex items-center justify-center border-4 border-red-800/20 group-hover:scale-110 transition-transform duration-700 p-4 md:p-8 overflow-hidden">
+              <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-red-600 rounded-full shadow-[0_15px_35px_rgba(0,0,0,0.3)] flex items-center justify-center border-4 border-red-700/20 group-hover:scale-110 transition-transform duration-700 p-4 md:p-6 overflow-hidden">
                 <img 
                   src="https://i.imgur.com/Shplw1y.png" 
                   alt="Wedding Crest"
