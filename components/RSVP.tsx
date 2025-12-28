@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 export const RSVP: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -84,9 +84,7 @@ export const RSVP: React.FC = () => {
                     {isLoading ? (
                       <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
                     ) : (
-                      <>
-                        Send My Response <Send size={14} />
-                      </>
+                      'Send My Response'
                     )}
                   </motion.button>
                 </form>
