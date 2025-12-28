@@ -106,6 +106,8 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
                     ></textarea>
                   </div>
 
+                  <QRSection />
+
                   <motion.button
                     disabled={isLoading}
                     whileHover={{ scale: 1.01 }}
@@ -121,8 +123,6 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
                   </motion.button>
                 </form>
 
-                <QRSection />
-                
               </motion.div>
             ) : (
               <motion.div
@@ -136,14 +136,15 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
                 </div>
                 <h3 className="font-serif text-3xl md:text-5xl text-gray-900 mb-4 md:mb-6">See You Soon!</h3>
                 <p className="text-gray-500 italic text-base md:text-xl mb-8 md:mb-12">"Your presence is the greatest gift of all."</p>
+                
+                <QRSection />
+
                 <button 
                   onClick={() => setIsSubmitted(false)}
-                  className="px-8 py-2 md:px-10 md:py-3 border border-red-600 text-red-600 rounded-none font-bold text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-red-600 hover:text-white transition-all"
+                  className="mt-8 md:mt-12 px-8 py-2 md:px-10 md:py-3 border border-red-600 text-red-600 rounded-none font-bold text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-red-600 hover:text-white transition-all"
                 >
                   Update Response
                 </button>
-                
-                <QRSection />
 
               </motion.div>
             )}
