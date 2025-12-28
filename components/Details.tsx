@@ -9,15 +9,15 @@ const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: stri
     viewport={{ once: true, margin: "-50px" }}
     transition={{ duration: 0.8, delay }}
     whileHover={{ y: -5 }}
-    className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-red-50 shadow-xl shadow-red-900/5 flex flex-col items-center text-center group transition-all"
+    className="flex flex-col items-center text-center group transition-all py-8"
   >
-    <div className="w-16 h-16 md:w-20 md:h-20 bg-red-700 rounded-full flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 group-hover:scale-110 transition-transform duration-500">
+    <div className="w-16 h-16 md:w-20 md:h-20 bg-red-700 flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 group-hover:scale-110 transition-transform duration-500">
       {icon}
     </div>
     <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">{title}</h3>
-    <p className="text-gray-500 font-normal text-base md:text-lg leading-relaxed">{content}</p>
+    <p className="text-gray-500 font-normal text-base md:text-lg leading-relaxed max-w-xs mx-auto">{content}</p>
     {subContent && (
-      <div className="mt-6 pt-6 border-t border-red-50 w-full">
+      <div className="mt-6 pt-6 border-t border-red-50 w-full max-w-[100px]">
         <p className="text-red-700 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold">{subContent}</p>
       </div>
     )}
@@ -44,7 +44,7 @@ export const Details: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           <DetailCard 
             icon={<MapPin size={28} />}
             title="The Venue"
@@ -72,9 +72,9 @@ export const Details: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 md:mt-24 p-8 md:p-12 bg-white rounded-[3rem] border border-red-50 shadow-xl flex flex-col md:flex-row items-center gap-8"
+          className="mt-16 md:mt-32 flex flex-col md:flex-row items-center gap-8 border-t border-red-50 pt-16"
         >
-          <div className="shrink-0 p-5 bg-red-700 rounded-2xl text-white shadow-xl shadow-red-200">
+          <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-red-200">
             <Navigation size={24} />
           </div>
           <div className="text-center md:text-left">
@@ -87,7 +87,7 @@ export const Details: React.FC = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full md:w-auto md:ml-auto px-10 py-4 bg-gray-900 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-red-800 transition-all shadow-lg flex items-center justify-center gap-2"
+            className="w-full md:w-auto md:ml-auto px-10 py-4 bg-gray-900 text-white rounded-none text-xs font-bold uppercase tracking-widest hover:bg-red-800 transition-all shadow-lg flex items-center justify-center gap-2"
           >
             Get Directions
           </motion.a>
