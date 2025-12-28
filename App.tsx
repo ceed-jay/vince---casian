@@ -6,12 +6,9 @@ import { OurStory } from './components/OurStory';
 import { PhotoGallery } from './components/PhotoGallery';
 import { RSVP } from './components/RSVP';
 import { EnvelopeEntry } from './components/EnvelopeEntry';
-import { MusicPlayer } from './components/MusicPlayer';
-import { Navigation } from './components/Navigation';
 
 const App: React.FC = () => {
   const [isOpened, setIsOpened] = useState(false);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   // Background for home screen
   const heroBackgroundImage = "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000";
@@ -22,7 +19,6 @@ const App: React.FC = () => {
   // Handle entry
   const handleOpenInvitation = () => {
     setIsOpened(true);
-    setIsMusicPlaying(true);
   };
 
   // Force scroll to top on mount and prevent browser scroll restoration
@@ -47,13 +43,6 @@ const App: React.FC = () => {
     <div className="relative bg-white text-gray-800 overflow-x-hidden selection:bg-red-100 selection:text-red-700 min-h-screen">
       {!isOpened && <EnvelopeEntry onOpen={handleOpenInvitation} />}
       
-      {isOpened && (
-        <>
-          <Navigation />
-          <MusicPlayer isPlaying={isMusicPlaying} setIsPlaying={setIsMusicPlaying} />
-        </>
-      )}
-
       <main className={`relative z-10 transition-all duration-1000 ease-in-out ${isOpened ? 'opacity-100' : 'opacity-0 pointer-events-none translate-y-8'}`}>
         <Hero bgImageUrl={heroBackgroundImage} />
         
