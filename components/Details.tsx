@@ -2,14 +2,16 @@ import React from 'react';
 import { MapPin, Shirt, Baby, Navigation } from 'lucide-react';
 
 const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: string, subContent?: string }> = ({ icon, title, content, subContent }) => (
-  <div className="flex flex-col items-center text-center group transition-all py-8">
-    <div className="w-10 h-10 md:w-12 md:h-12 bg-red-700 rounded-full flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 transition-transform duration-500">
-      {icon}
+  <div className="flex flex-col items-center text-center group transition-all py-8 h-full">
+    <div className="flex flex-col items-center flex-grow">
+      <div className="w-10 h-10 md:w-12 md:h-12 bg-red-700 rounded-full flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 transition-transform duration-500">
+        {icon}
+      </div>
+      <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">{title}</h3>
+      <p className="text-gray-500 font-normal text-base md:text-lg leading-relaxed max-w-xs mx-auto mb-8">{content}</p>
     </div>
-    <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">{title}</h3>
-    <p className="text-gray-500 font-normal text-base md:text-lg leading-relaxed max-w-xs mx-auto">{content}</p>
     {subContent && (
-      <div className="mt-6 pt-6 border-t border-red-50 w-full flex justify-center">
+      <div className="mt-auto pt-6 border-t border-red-50 w-full flex justify-center">
         <p className="text-red-700 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold whitespace-nowrap">{subContent}</p>
       </div>
     )}
@@ -31,7 +33,7 @@ export const Details: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-stretch">
           <DetailCard 
             icon={<MapPin size={18} />}
             title="The Venue"
