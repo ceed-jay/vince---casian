@@ -40,10 +40,10 @@ export const EnvelopeEntry: React.FC<EnvelopeEntryProps> = ({ onOpen }) => {
           </motion.h2>
         </div>
 
-        {/* Responsive Envelope Container */}
+        {/* Responsive Envelope Container - Added light red shadow */}
         <div 
           onClick={handleOpen}
-          className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[550px] aspect-[1.4/1] cursor-pointer group"
+          className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[550px] aspect-[1.4/1] cursor-pointer group shadow-[0_25px_60px_-15px_rgba(153,27,27,0.12)] transition-shadow duration-700 hover:shadow-[0_35px_80px_-15px_rgba(153,27,27,0.18)]"
         >
           {/* Main Envelope Body */}
           <div className="absolute inset-0 bg-[#f9f7f4] rounded-sm overflow-hidden">
@@ -68,7 +68,7 @@ export const EnvelopeEntry: React.FC<EnvelopeEntryProps> = ({ onOpen }) => {
             <div className="absolute inset-0 bg-red-50/10"></div>
           </motion.div>
 
-          {/* Wax Seal / Stamp - Padding reduced to p-1 to make the logo significantly larger */}
+          {/* Wax Seal / Stamp - Big logo, no dark borders */}
           <motion.div 
             animate={isAnimating ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
             className="absolute top-[47%] left-[39%] -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center"
