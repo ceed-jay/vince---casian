@@ -40,9 +40,6 @@ const variants = {
   }),
 };
 
-/**
- * Swipe threshold for mobile
- */
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
@@ -60,7 +57,7 @@ export const PhotoGallery: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 3000);
+    }, 4000); // Increased slightly for better viewing time
     return () => clearInterval(timer);
   }, [page]);
 
@@ -90,8 +87,8 @@ export const PhotoGallery: React.FC = () => {
         <div className="w-12 md:w-16 h-px bg-red-100 mx-auto"></div>
       </div>
 
-      <div className="relative h-[350px] sm:h-[450px] md:h-[650px] flex items-center justify-center">
-        {/* Navigation - Hidden on very small touch devices to prevent clutter, visible on MD+ */}
+      <div className="relative h-[280px] sm:h-[450px] md:h-[650px] flex items-center justify-center">
+        {/* Navigation - Visible on MD+ only */}
         <button 
           className="absolute left-2 md:left-8 lg:left-12 z-50 p-3 md:p-4 bg-white/90 shadow-xl rounded-full text-red-800 hover:bg-red-700 hover:text-white transition-all backdrop-blur-sm hidden md:flex"
           onClick={() => paginate(-1)}
@@ -109,10 +106,13 @@ export const PhotoGallery: React.FC = () => {
 
         <div className="relative w-full max-w-6xl flex justify-center items-center h-full px-2 sm:px-4">
           <AnimatePresence initial={false} custom={direction}>
-            {/* Left Peak (Hidden on mobile for clarity, visible on LG+) */}
+            {/* Left Peak - Adjusted for Mobile visibility */}
             <motion.div
               key={`prev-${getAdjacentIndex(-1)}`}
-              className="absolute left-[-15%] xl:left-[-10%] w-[40%] h-[70%] opacity-10 blur-[1px] hidden lg:block overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.25 }}
+              exit={{ opacity: 0 }}
+              className="absolute left-[-22%] sm:left-[-15%] xl:left-[-10%] w-[45%] h-[65%] md:h-[75%] blur-[1px] overflow-hidden pointer-events-none"
             >
               <img src={images[getAdjacentIndex(-1)]} className="w-full h-full object-cover" alt="" />
             </motion.div>
@@ -141,7 +141,7 @@ export const PhotoGallery: React.FC = () => {
                   paginate(-1);
                 }
               }}
-              className="relative w-[92%] sm:w-[85%] md:w-[75%] lg:w-[65%] h-full z-20 shadow-[0_20px_60px_rgba(0,0,0,0.15)] md:shadow-[0_40px_100px_rgba(0,0,0,0.2)] border-2 md:border-4 border-white overflow-hidden cursor-grab active:cursor-grabbing"
+              className="relative w-[70%] sm:w-[80%] md:w-[75%] lg:w-[65%] h-full z-20 shadow-[0_15px_40px_rgba(0,0,0,0.12)] md:shadow-[0_40px_100px_rgba(0,0,0,0.2)] border-2 md:border-4 border-white overflow-hidden cursor-grab active:cursor-grabbing"
               style={{ borderRadius: '0px' }}
             >
               <img 
@@ -151,19 +151,22 @@ export const PhotoGallery: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
               
-              {/* Mobile-only subtle arrows overlay */}
-              <div className="absolute inset-y-0 left-0 w-12 flex items-center justify-center md:hidden pointer-events-none opacity-30">
-                <ChevronLeft className="text-white" size={24} />
+              {/* Mobile-only subtle hints */}
+              <div className="absolute inset-y-0 left-0 w-8 flex items-center justify-center md:hidden pointer-events-none opacity-20">
+                <ChevronLeft className="text-white" size={20} />
               </div>
-              <div className="absolute inset-y-0 right-0 w-12 flex items-center justify-center md:hidden pointer-events-none opacity-30">
-                <ChevronRight className="text-white" size={24} />
+              <div className="absolute inset-y-0 right-0 w-8 flex items-center justify-center md:hidden pointer-events-none opacity-20">
+                <ChevronRight className="text-white" size={20} />
               </div>
             </motion.div>
 
-            {/* Right Peak (Hidden on mobile for clarity, visible on LG+) */}
+            {/* Right Peak - Adjusted for Mobile visibility */}
             <motion.div
               key={`next-${getAdjacentIndex(1)}`}
-              className="absolute right-[-15%] xl:right-[-10%] w-[40%] h-[70%] opacity-10 blur-[1px] hidden lg:block overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.25 }}
+              exit={{ opacity: 0 }}
+              className="absolute right-[-22%] sm:right-[-15%] xl:right-[-10%] w-[45%] h-[65%] md:h-[75%] blur-[1px] overflow-hidden pointer-events-none"
             >
               <img src={images[getAdjacentIndex(1)]} className="w-full h-full object-cover" alt="" />
             </motion.div>
@@ -171,8 +174,7 @@ export const PhotoGallery: React.FC = () => {
         </div>
       </div>
 
-      {/* Progress indicators - Improved layout for mobile wrap */}
-      <div className="flex justify-center mt-10 md:mt-14 gap-2 flex-wrap max-w-[280px] sm:max-w-md mx-auto px-4">
+      <div className="flex justify-center mt-8 md:mt-14 gap-1.5 flex-wrap max-w-[240px] sm:max-w-md mx-auto px-4">
         {images.map((_, i) => (
           <button
             key={i}
@@ -180,8 +182,8 @@ export const PhotoGallery: React.FC = () => {
               const diff = i - imageIndex;
               if (diff !== 0) paginate(diff);
             }}
-            className={`h-1.5 transition-all duration-500 rounded-full ${
-              imageIndex === i ? 'w-6 md:w-8 bg-red-700' : 'w-1.5 md:w-2 bg-red-100 hover:bg-red-200'
+            className={`h-1 transition-all duration-500 rounded-full ${
+              imageIndex === i ? 'w-5 md:w-8 bg-red-700' : 'w-1 md:w-2 bg-red-100 hover:bg-red-200'
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />
