@@ -39,9 +39,14 @@ export const Hero: React.FC<HeroProps> = ({ bgImageUrl }) => {
           transition={{ delay: 1.2, duration: 1 }}
           className="space-y-6 px-4"
         >
-          <p className="font-serif italic text-lg sm:text-xl md:text-3xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-light">
-            "What God has joined together, let no one separate."
-          </p>
+          <div>
+            <p className="font-serif italic text-base sm:text-lg md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-light">
+              "What God has joined together, let no one separate."
+            </p>
+            <p className="font-serif italic text-xs sm:text-sm text-white/80 max-w-2xl mx-auto mt-3 drop-shadow-lg font-light">
+              (Matthew 19:6)
+            </p>
+          </div>
           <div className="flex flex-col items-center gap-2">
             <div className="w-8 h-px bg-red-500/50"></div>
           </div>
