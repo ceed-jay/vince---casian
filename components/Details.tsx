@@ -11,7 +11,7 @@ const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: stri
     whileHover={{ y: -5 }}
     className="flex flex-col items-center text-center group transition-all py-8"
   >
-    <div className="w-16 h-16 md:w-20 md:h-20 bg-red-700 flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 group-hover:scale-110 transition-transform duration-500">
+    <div className="w-12 h-12 md:w-14 md:h-14 bg-red-700 flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 group-hover:scale-110 transition-transform duration-500">
       {icon}
     </div>
     <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">{title}</h3>
@@ -46,21 +46,21 @@ export const Details: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           <DetailCard 
-            icon={<MapPin size={28} />}
+            icon={<MapPin size={20} />}
             title="The Venue"
             content="Our celebration will be hosted at the elegant Barisbis in Camalig, Albay. Our staff will be ready to guide you."
             subContent="Camalig, Albay 4502"
             delay={0.1}
           />
           <DetailCard 
-            icon={<Shirt size={28} />}
+            icon={<Shirt size={20} />}
             title="Dress Code"
             content="We invite our guests to join us in Semi-Formal attire, reflecting the romance and elegance of the day."
             subContent="Semi-Formal / Formal"
             delay={0.2}
           />
           <DetailCard 
-            icon={<Baby size={28} />}
+            icon={<Baby size={20} />}
             title="Children"
             content="To allow all guests to relax and enjoy the evening, we have chosen for our wedding to be an adults-only occasion."
             subContent="Adults Only Reception"
