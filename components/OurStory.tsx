@@ -22,9 +22,6 @@ const events = [
 export const OurStory: React.FC = () => {
   return (
     <section id="story" className="py-20 md:py-32 bg-white px-6 relative overflow-hidden">
-      {/* Texture Layer */}
-      <div className="absolute inset-0 opacity-[0.01] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%)', backgroundSize: '15px 15px' }}></div>
-      
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-20 md:mb-32">
           <motion.span 
