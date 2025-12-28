@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle } from 'lucide-react';
@@ -22,15 +21,9 @@ export const RSVP: React.FC = () => {
   };
 
   return (
-    <section id="rsvp" className="py-20 md:py-32 bg-[#fafafa] px-4 relative overflow-hidden border-t border-red-50">
-      {/* Decorative Background: Elegant Envelope Look */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-200 to-transparent"></div>
-      
+    <section id="rsvp" className="py-20 md:py-32 bg-white px-4 relative overflow-hidden border-t border-red-50">
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="bg-white rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-20 shadow-[0_30px_60px_-15px_rgba(153,27,27,0.1)] border border-red-50/50 relative overflow-hidden">
-          
-          <div className="absolute top-0 left-0 w-full h-24 md:h-32 bg-red-50/20 -skew-y-3 origin-top-left pointer-events-none"></div>
-
+        <div className="bg-white rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-20 shadow-[0_30px_60px_-15px_rgba(153,27,27,0.1)] border border-red-50 relative overflow-hidden">
           <AnimatePresence mode="wait">
             {!isSubmitted ? (
               <motion.div
@@ -40,7 +33,7 @@ export const RSVP: React.FC = () => {
                 exit={{ opacity: 0 }}
               >
                 <div className="text-center mb-8 md:mb-16">
-                  <h2 className="font-serif text-3xl md:text-5xl text-gray-900 mb-4 md:mb-6">Vince & Casian</h2>
+                  <h2 className="font-serif text-3xl md:text-5xl text-black mb-4 md:mb-6">Vince & Casian</h2>
                   <p className="text-red-400 uppercase tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] font-bold">Please RSVP by July 11, 2026</p>
                 </div>
 
@@ -54,7 +47,7 @@ export const RSVP: React.FC = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         placeholder="Full Name"
-                        className="w-full px-6 py-4 md:py-5 bg-gray-50/50 border border-red-50 rounded-2xl md:rounded-3xl focus:border-red-600 focus:ring-0 focus:bg-white transition-all outline-none text-gray-800 text-sm md:text-base"
+                        className="w-full px-6 py-4 md:py-5 bg-gray-50 border border-red-50 rounded-2xl md:rounded-3xl focus:border-red-600 focus:ring-0 focus:bg-white transition-all outline-none text-gray-800 text-sm md:text-base"
                       />
                     </div>
                     <div className="space-y-1 md:space-y-2">
@@ -62,7 +55,7 @@ export const RSVP: React.FC = () => {
                       <select 
                         value={formData.attendance}
                         onChange={(e) => setFormData({...formData, attendance: e.target.value})}
-                        className="w-full px-6 py-4 md:py-5 bg-gray-50/50 border border-red-50 rounded-2xl md:rounded-3xl focus:border-red-600 focus:bg-white transition-all outline-none appearance-none cursor-pointer text-sm md:text-base"
+                        className="w-full px-6 py-4 md:py-5 bg-gray-50 border border-red-50 rounded-2xl md:rounded-3xl focus:border-red-600 focus:bg-white transition-all outline-none appearance-none cursor-pointer text-sm md:text-base"
                       >
                         <option value="yes">Attending with Joy</option>
                         <option value="no">Declining with Regret</option>
@@ -74,11 +67,10 @@ export const RSVP: React.FC = () => {
                     <label className="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 font-bold ml-1">Special Wishes</label>
                     <textarea 
                       rows={3}
-                      md-rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       placeholder="Message for Vince & Casian..."
-                      className="w-full px-6 py-4 md:py-5 bg-gray-50/50 border border-red-50 rounded-2xl md:rounded-3xl focus:border-red-600 focus:bg-white transition-all outline-none resize-none text-sm md:text-base"
+                      className="w-full px-6 py-4 md:py-5 bg-gray-50 border border-red-50 rounded-2xl md:rounded-3xl focus:border-red-600 focus:bg-white transition-all outline-none resize-none text-sm md:text-base"
                     ></textarea>
                   </div>
 
@@ -107,9 +99,9 @@ export const RSVP: React.FC = () => {
                 className="text-center py-10 md:py-16"
               >
                 <div className="w-16 h-16 md:w-24 md:h-24 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 md:mb-10 shadow-xl shadow-red-200">
-                  <CheckCircle size={32} md-size={56} />
+                  <CheckCircle size={32} />
                 </div>
-                <h3 className="font-serif text-3xl md:text-5xl text-gray-900 mb-4 md:mb-6">See You Soon!</h3>
+                <h3 className="font-serif text-3xl md:text-5xl text-black mb-4 md:mb-6">See You Soon!</h3>
                 <p className="text-gray-500 italic text-base md:text-xl mb-8 md:mb-12">"Your presence is the greatest gift of all."</p>
                 <button 
                   onClick={() => setIsSubmitted(false)}
