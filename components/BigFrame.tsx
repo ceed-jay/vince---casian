@@ -16,8 +16,8 @@ export const BigFrame: React.FC<BigFrameProps> = ({ imgUrl, caption }) => {
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         className="relative max-w-7xl w-full"
       >
-        {/* Cinematic Wide Photo Container */}
-        <div className="relative shadow-2xl rounded-lg overflow-hidden aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] bg-gray-50 group">
+        {/* Cinematic Wide Photo Container - Removed rounded-lg */}
+        <div className="relative shadow-2xl rounded-none overflow-hidden aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] bg-gray-50 group">
           <motion.img 
             src={imgUrl} 
             alt="Couples Portrait" 
@@ -26,8 +26,8 @@ export const BigFrame: React.FC<BigFrameProps> = ({ imgUrl, caption }) => {
           {/* Subtle overlay for depth */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
           
-          {/* Minimal Accent Lines (Optional, but adds a touch of elegance) */}
-          <div className="absolute inset-4 border border-white/20 pointer-events-none rounded-sm"></div>
+          {/* Minimal Accent Lines - Removed rounded-sm */}
+          <div className="absolute inset-4 border border-white/20 pointer-events-none rounded-none"></div>
         </div>
 
         {/* Caption Styling */}
