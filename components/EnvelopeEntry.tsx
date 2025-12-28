@@ -46,11 +46,10 @@ export const EnvelopeEntry: React.FC<EnvelopeEntryProps> = ({ onOpen }) => {
           className="relative w-full max-w-[320px] sm:max-w-[400px] md:max-w-[550px] aspect-[1.4/1] cursor-pointer group"
         >
           {/* Main Envelope Body */}
-          <div className="absolute inset-0 bg-[#f9f7f4] shadow-2xl rounded-sm border border-red-50/50 overflow-hidden">
+          <div className="absolute inset-0 bg-[#f9f7f4] rounded-sm overflow-hidden">
             <div className="absolute inset-0" style={{ 
               clipPath: 'polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%)',
-              background: '#fffdfa',
-              boxShadow: 'inset 0 0 40px rgba(0,0,0,0.03)'
+              background: '#fffdfa'
             }}></div>
           </div>
 
@@ -64,31 +63,24 @@ export const EnvelopeEntry: React.FC<EnvelopeEntryProps> = ({ onOpen }) => {
               zIndex: isAnimating ? 5 : 20,
               clipPath: 'polygon(0% 0%, 50% 100%, 100% 0%)'
             }}
-            className="absolute top-0 left-0 w-full h-[60%] bg-[#f4f2ef] shadow-sm"
+            className="absolute top-0 left-0 w-full h-[60%] bg-[#f4f2ef]"
           >
             <div className="absolute inset-0 bg-red-50/10"></div>
           </motion.div>
 
-          {/* Wax Seal / Stamp - Centered on the envelope face */}
+          {/* Wax Seal / Stamp - Padding reduced to p-1 to make the logo significantly larger */}
           <motion.div 
             animate={isAnimating ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center"
+            className="absolute top-[47%] left-[39%] -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center"
           >
             <div className="relative">
-              <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-red-600 rounded-full shadow-[0_15px_35px_rgba(0,0,0,0.3)] flex items-center justify-center border-4 border-red-700/20 group-hover:scale-110 transition-transform duration-700 p-4 md:p-6 overflow-hidden">
+              <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-[#710000] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-700 p-1 md:p-1 overflow-hidden">
                 <img 
                   src="https://i.imgur.com/Shplw1y.png" 
                   alt="Wedding Crest"
-                  className="w-full h-full object-contain brightness-[1.8] contrast-125 select-none pointer-events-none"
+                  className="w-full h-full object-contain brightness-[1.6] contrast-125 select-none pointer-events-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent pointer-events-none rounded-full"></div>
               </div>
-              {/* Animated Ring */}
-              <motion.div 
-                animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -inset-4 border border-red-200/20 rounded-full pointer-events-none"
-              />
             </div>
           </motion.div>
 
