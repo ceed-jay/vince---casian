@@ -43,19 +43,38 @@ export const Hero: React.FC<HeroProps> = ({ bgImageUrl }) => {
           <span className="text-red-800 font-script inline-block mx-1 sm:mx-4 transform sm:translate-y-2 text-4xl sm:text-5xl md:text-7xl lg:text-[8rem]">&</span>
           <span className="block sm:inline">Casian</span>
         </h1>
+        {/* Quote for Mobile/Tablet */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1 }}
+          className="space-y-4 px-4 mt-6 md:hidden"
+        >
+          <div>
+            <p className="font-serif italic text-base sm:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-light">
+              "What God has joined together, let no one separate."
+            </p>
+            <p className="font-serif italic text-xs sm:text-sm text-white/80 max-w-2xl mx-auto mt-3 drop-shadow-lg font-light">
+              (Matthew 19:6)
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <div className="w-8 h-px bg-red-500/50"></div>
+          </div>
+        </motion.div>
       </motion.div>
 
-      {/* Quote at the bottom */}
+      {/* Quote at the bottom - Desktop Only */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1.2, ease: "easeOut" }}
-        className="absolute bottom-28 z-10 px-6 w-full"
+        className="hidden md:block absolute bottom-28 z-10 px-6 w-full"
       >
-          <p className="font-serif italic text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-light">
+          <p className="font-serif italic text-xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-light">
             "What God has joined together, let no one separate."
           </p>
-          <p className="font-serif italic text-xs sm:text-sm text-white/80 max-w-2xl mx-auto mt-3 drop-shadow-lg font-light">
+          <p className="font-serif italic text-sm text-white/80 max-w-2xl mx-auto mt-3 drop-shadow-lg font-light">
             (Matthew 19:6)
           </p>
       </motion.div>
