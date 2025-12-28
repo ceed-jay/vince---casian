@@ -4,7 +4,7 @@ import { MapPin, Shirt, Baby, Navigation } from 'lucide-react';
 const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: string, subContent?: string }> = ({ icon, title, content, subContent }) => (
   <div className="flex flex-col items-center text-center group transition-all py-8 h-full">
     <div className="flex flex-col items-center flex-grow">
-      <div className="w-10 h-10 md:w-12 md:h-12 bg-red-700 rounded-full flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-red-100 transition-transform duration-500">
+      <div className="w-10 h-10 md:w-12 md:h-12 bg-red-700 rounded-full flex items-center justify-center text-white mb-6 md:mb-8 shadow-lg shadow-gray-200 transition-transform duration-500">
         {icon}
       </div>
       <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-4">{title}</h3>
@@ -55,7 +55,7 @@ export const Details: React.FC = () => {
         </div>
 
         <div className="mt-16 md:mt-32 flex flex-col md:flex-row items-center gap-8 border-t border-red-50 pt-16">
-          <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-red-200 rounded-full">
+          <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-gray-200 rounded-full">
             <Navigation size={20} />
           </div>
           <div className="text-center md:text-left">
