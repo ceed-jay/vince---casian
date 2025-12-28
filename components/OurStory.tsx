@@ -55,11 +55,7 @@ export const OurStory: React.FC = () => {
                 <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
                   {event.description}
                 </p>
-                <div className="flex justify-center md:justify-start items-center gap-4 mt-10">
-                  <div className="w-8 h-px bg-red-100"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#710000]"></div>
-                  <div className="w-8 h-px bg-red-100"></div>
-                </div>
+                <div className="w-16 h-px bg-red-100 mt-10 mx-auto md:mx-0"></div>
               </div>
             </div>
           ))}
