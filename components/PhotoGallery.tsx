@@ -76,14 +76,9 @@ export const PhotoGallery: React.FC = () => {
         >
           Gallery of Love
         </motion.span>
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-serif text-3xl md:text-6xl text-gray-900 mb-4 md:mb-6"
-        >
+        <h2 className="font-serif text-3xl md:text-6xl text-gray-900 mb-4 md:mb-6">
           Cherished Moments
-        </motion.h2>
+        </h2>
         <div className="w-12 md:w-16 h-px bg-red-100 mx-auto"></div>
       </div>
 
