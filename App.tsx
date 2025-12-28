@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const framePhotoUrl = "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=2000";
 
   // QR Code details for RSVP section
-  const qrCodeUrl = "https://i.imgur.com/example-qr.png"; // Replace with your actual QR code image URL
+  const qrCodeUrl = "https://i.imgur.com/ZzyuSOb.png"; // Replace with your actual QR code image URL
   const qrTitle = "A Note on Gifts";
   const qrDescription = " For your convenience, gifts may be given via the QR code below or placed in the gift box at the venue. Thank you for sharing in this joyous beginning with us.";
 
