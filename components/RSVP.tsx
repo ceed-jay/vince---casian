@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, X } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 interface RSVPProps {
   qrCodeUrl?: string;
   qrTitle?: string;
   qrDescription?: string;
+  onQrClick: () => void;
 }
 
-export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription }) => {
+export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, onQrClick }) => {
   const [formData, setFormData] = useState({
     name: '',
     attendance: 'yes',
@@ -16,7 +17,6 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription })
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription })
         <div className="shrink-0">
           <button
             type="button"
-            onClick={() => setIsQrModalOpen(true)}
+            onClick={onQrClick}
             className="cursor-pointer transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded-lg"
             aria-label="Enlarge QR code"
           >
@@ -52,48 +52,8 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription })
     )
   );
   
-  const QRModal = () => (
-    <AnimatePresence>
-      {isQrModalOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setIsQrModalOpen(false)}
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 cursor-pointer"
-          aria-modal="true"
-          role="dialog"
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ type: 'spring', damping: 20, stiffness: 250 }}
-            onClick={(e) => e.stopPropagation()}
-            className="relative bg-white p-4 border-4 border-red-100 shadow-2xl cursor-default"
-          >
-            <img 
-              src={qrCodeUrl} 
-              alt="Enlarged Gift QR Code"
-              className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-contain"
-            />
-             <button 
-               onClick={() => setIsQrModalOpen(false)}
-               className="absolute -top-5 -right-5 w-10 h-10 bg-white text-red-700 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 hover:text-white transition-all transform hover:rotate-90"
-               aria-label="Close QR code view"
-             >
-               <X size={20} />
-             </button>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-
-
   return (
     <section id="rsvp" className="py-20 md:py-32 bg-white px-4 relative overflow-hidden border-t border-red-50">
-      <QRModal />
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="bg-white rounded-none p-6 md:p-20 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] border border-red-50 relative overflow-hidden">
           <AnimatePresence mode="wait">
