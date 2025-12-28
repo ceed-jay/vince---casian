@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Shirt, Baby, Navigation as NavIcon } from 'lucide-react';
+import { MapPin, Shirt, Baby, Navigation, Gift } from 'lucide-react';
 
 const DetailCard: React.FC<{ icon: React.ReactNode, title: string, content: string, subContent?: string }> = ({ icon, title, content, subContent }) => (
   <div className="flex flex-col items-center text-center group transition-all py-8 h-full">
@@ -29,7 +29,7 @@ export const Details: React.FC = () => {
           <div className="w-24 h-px bg-red-200 mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-stretch">
           <DetailCard 
             icon={<MapPin size={18} />}
             title="The Venue"
@@ -48,25 +48,29 @@ export const Details: React.FC = () => {
             content="To allow all guests to relax and enjoy the evening, we have chosen for our wedding to be an adults-only occasion."
             subContent="Adults Only Reception"
           />
+          <DetailCard 
+            icon={<Gift size={18} />}
+            title="Gifts"
+            content="With sincere gratitude, we kindly request monetary gifts or donations in lieu of boxed gifts."
+            subContent="With heartfelt thanks"
+          />
         </div>
 
-        <div className="mt-16 md:mt-32 text-center border-t border-red-50 pt-16">
-          <div className="flex justify-center mb-6">
-            <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-gray-200 rounded-full">
-              <NavIcon size={20} />
-            </div>
+        <div className="mt-16 md:mt-32 flex flex-col md:flex-row items-center gap-8 border-t border-red-50 pt-16">
+          <div className="shrink-0 p-5 bg-red-700 text-white shadow-xl shadow-gray-200 rounded-full">
+            <Navigation size={20} />
           </div>
-          <h4 className="font-serif text-2xl text-gray-900 mb-2">Let's Get You There</h4>
-          <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-lg mx-auto mb-8">
-            Follow the link for the most direct route to Barisbis. We can't wait to see you!
-          </p>
+          <div className="text-center md:text-left">
+            <h4 className="font-serif text-2xl text-gray-900 mb-2">Navigation</h4>
+            <p className="text-gray-500 text-sm md:text-base leading-relaxed">Follow the link to find the most direct route to Barisbis. We can't wait to see you there!</p>
+          </div>
           <a 
             href="https://www.google.com/maps/search/?api=1&query=Barisbis+Camalig+Albay"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-red-700 text-white rounded-none text-xs font-bold uppercase tracking-widest hover:bg-red-800 transition-all shadow-lg shadow-red-200"
+            className="w-full md:w-auto md:ml-auto px-10 py-4 bg-gray-900 text-white rounded-none text-xs font-bold uppercase tracking-widest hover:bg-red-800 transition-all shadow-lg flex items-center justify-center gap-2"
           >
-            Open Google Maps
+            Get Directions
           </a>
         </div>
       </div>
