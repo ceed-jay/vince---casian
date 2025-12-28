@@ -68,13 +68,13 @@ export const EnvelopeEntry: React.FC<EnvelopeEntryProps> = ({ onOpen }) => {
             <div className="absolute inset-0 bg-red-50/10"></div>
           </motion.div>
 
-          {/* Wax Seal / Stamp - Big logo, no dark borders */}
+          {/* Wax Seal / Stamp - Positioned slightly more to the right */}
           <motion.div 
             animate={isAnimating ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
-            className="absolute top-[47%] left-[39%] -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center"
+            className="absolute top-[47%] left-[43%] -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center"
           >
             <div className="relative">
-              <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-[#710000] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-700 p-1 md:p-1 overflow-hidden">
+              <div className="w-12 h-12 sm:w-16 h-16 md:w-20 md:h-20 bg-[#710000] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-700 p-1 md:p-1 overflow-hidden shadow-lg">
                 <img 
                   src="https://i.imgur.com/Shplw1y.png" 
                   alt="Wedding Crest"
