@@ -58,7 +58,7 @@ const App: React.FC = () => {
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
   // Background for home screen
-  const heroBackgroundImage = "https://i.imgur.com/hGZVcD3.jpeg";
+  const heroBackgroundImage = "https://i.imgur.com/NG2tHxH.jpeg";
   
   // URL for the big picture frame photo
   const framePhotoUrl = "https://i.imgur.com/hGZVcD3.jpeg";
