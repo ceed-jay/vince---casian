@@ -58,10 +58,10 @@ const App: React.FC = () => {
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
   // Background for home screen
-  const heroBackgroundImage = "https://images.unsplash.com/photo-1519741497674-611481863552?auto-format&fit=crop&q=80&w=2000";
+  const heroBackgroundImage = "https://i.imgur.com/hGZVcD3.jpeg";
   
   // URL for the big picture frame photo
-  const framePhotoUrl = "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto-format&fit=crop&q=80&w=2000";
+  const framePhotoUrl = "https://i.imgur.com/hGZVcD3.jpeg";
 
   // QR Code details for RSVP section
   const qrCodeUrl = "https://i.imgur.com/ZzyuSOb.png"; // Replace with your actual QR code image URL
