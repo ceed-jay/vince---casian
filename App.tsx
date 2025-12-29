@@ -130,11 +130,9 @@ const App: React.FC = () => {
           <p className="font-symphony text-4xl sm:text-5xl md:text-7xl text-red-800 mb-6">
             Vince <span className="font-script">&</span> Casian
           </p>
-          <p className="text-gray-400 uppercase tracking-[0.3em] text-[9px] md:text-xs">Forever & Always • July 11, 2026</p>
-          <div className="mt-8 flex justify-center items-center space-x-4">
-             <div className="w-8 h-px bg-red-100"></div>
-             <span className="text-red-600 text-lg">❤</span>
-             <div className="w-8 h-px bg-red-100"></div>
+          <p className="text-gray-400 uppercase tracking-[0.3em] text-[9px] md:text-xs">Forever & Always • May 31, 2026</p>
+          <div className="mt-8 flex justify-center items-center">
+             <div className="w-24 h-px bg-red-100"></div>
           </div>
         </div>
       </footer>
