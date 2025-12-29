@@ -61,7 +61,7 @@ const App: React.FC = () => {
   const heroBackgroundImage = "https://i.imgur.com/NG2tHxH.jpeg";
   
   // URL for the big picture frame photo
-  const framePhotoUrl = "https://i.imgur.com/hGZVcD3.jpeg";
+  const framePhotoUrl = "https://i.imgur.com/bKjus8t.jpeg";
 
   // QR Code details for RSVP section
   const qrCodeUrl = "https://i.imgur.com/ZzyuSOb.png"; // Replace with your actual QR code image URL
