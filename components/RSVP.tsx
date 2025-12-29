@@ -113,8 +113,8 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
                         onChange={(e) => setFormData({...formData, attendance: e.target.value})}
                         className="w-full px-6 py-4 md:py-5 bg-gray-50 border border-red-50 rounded-none focus:border-red-600 focus:bg-white transition-all outline-none appearance-none cursor-pointer text-sm md:text-base"
                       >
-                        <option value="yes">Attending with Joy</option>
-                        <option value="no">Declining with Regret</option>
+                        <option value="yes">Will Attend</option>
+                        <option value="no">Unable to attend</option>
                       </select>
                     </div>
                   </div>
