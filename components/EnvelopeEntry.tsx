@@ -74,7 +74,7 @@ export const EnvelopeEntry: React.FC<EnvelopeEntryProps> = ({ onOpen }) => {
             className="absolute top-[47%] left-[43%] -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center"
           >
             <div className="relative">
-              <div className="w-12 h-12 sm:w-16 h-16 md:w-20 md:h-20 bg-[#710000] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-700 p-1 md:p-1 overflow-hidden shadow-lg">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-[#710000] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-700 p-1 md:p-1 overflow-hidden shadow-lg">
                 <img 
                   src="https://i.imgur.com/Shplw1y.png" 
                   alt="Wedding Crest"
