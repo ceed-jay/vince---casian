@@ -18,13 +18,34 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
+    
+    // IMPORTANT: Replace with your own Formspree endpoint URL
+    const formspreeEndpoint = 'https://formspree.io/f/maqyppbv';
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert('There was an error submitting your RSVP. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting your RSVP. Please try again.');
+    } finally {
       setIsLoading(false);
-      setIsSubmitted(true);
-    }, 1500);
+    }
   };
 
   const QRSection = () => (
@@ -76,6 +97,7 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
                       <input 
                         required
                         type="text"
+                        name="name"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         placeholder="Full Name"
@@ -85,6 +107,8 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
                     <div className="space-y-1 md:space-y-2">
                       <label className="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 font-bold ml-1">RSVP Status</label>
                       <select 
+                        required
+                        name="attendance"
                         value={formData.attendance}
                         onChange={(e) => setFormData({...formData, attendance: e.target.value})}
                         className="w-full px-6 py-4 md:py-5 bg-gray-50 border border-red-50 rounded-none focus:border-red-600 focus:bg-white transition-all outline-none appearance-none cursor-pointer text-sm md:text-base"
@@ -99,6 +123,7 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
                     <label className="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 font-bold ml-1">Special Wishes</label>
                     <textarea 
                       rows={3}
+                      name="message"
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       placeholder="Message for Vince & Casian..."
@@ -111,41 +136,41 @@ export const RSVP: React.FC<RSVPProps> = ({ qrCodeUrl, qrTitle, qrDescription, o
                   <motion.button
                     disabled={isLoading}
                     whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full py-4 md:py-6 bg-red-700 text-white rounded-none font-bold tracking-[0.2em] text-[10px] md:text-[11px] uppercase shadow-lg shadow-gray-200 flex items-center justify-center gap-3 md:gap-4 transition-all hover:bg-red-800 disabled:opacity-70 mt-4"
+                    className="w-full px-8 py-5 bg-red-700 text-white rounded-none text-xs font-bold uppercase tracking-widest hover:bg-red-800 transition-all shadow-lg hover:shadow-xl disabled:bg-red-400 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                   >
                     {isLoading ? (
-                      <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                      <>
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Sending...</span>
+                      </>
                     ) : (
-                      'Send My Response'
+                      'Send RSVP'
                     )}
                   </motion.button>
                 </form>
-
               </motion.div>
             ) : (
               <motion.div
                 key="success"
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-10 md:py-16"
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="text-center py-16 md:py-24"
               >
-                <div className="w-16 h-16 md:w-24 md:h-24 bg-red-600 text-white rounded-none flex items-center justify-center mx-auto mb-6 md:mb-10 shadow-xl shadow-gray-200">
-                  <CheckCircle size={32} />
-                </div>
-                <h3 className="font-serif text-3xl md:text-5xl text-gray-900 mb-4 md:mb-6">See You Soon!</h3>
-                <p className="text-gray-500 italic text-base md:text-xl mb-8 md:mb-12">"Your presence is the greatest gift of all."</p>
-                
-                <QRSection />
-
-                <button 
-                  onClick={() => setIsSubmitted(false)}
-                  className="mt-8 md:mt-12 px-8 py-2 md:px-10 md:py-3 border border-red-600 text-red-600 rounded-none font-bold text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-red-600 hover:text-white transition-all"
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1, rotate: 360 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
                 >
-                  Update Response
-                </button>
-
+                  <CheckCircle className="w-16 h-16 md:w-20 md:h-20 text-red-700 mx-auto" />
+                </motion.div>
+                <h3 className="font-serif text-2xl md:text-4xl text-gray-900 mt-8 mb-4">Thank You!</h3>
+                <p className="text-gray-500 text-sm md:text-base max-w-sm mx-auto">Your response has been received. We can't wait to celebrate with you!</p>
               </motion.div>
             )}
           </AnimatePresence>
